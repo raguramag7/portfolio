@@ -3,7 +3,7 @@
 
 @CrossOrigin(origins = {
     "http://localhost:5173",
-    "https://portfolio-hmffu5i0x-raguramag7s-projects.vercel.app"
+    "https://portfolio-ten-kappa-kpyktr18zs.vercel.app"
 })
 
 public class ContactController {
