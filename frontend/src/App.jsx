@@ -1,6 +1,9 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { AuthProvider } from './context/AuthContext'
+
 import Layout from './components/layout/Layout'
+import ProtectedRoute from './components/layout/ProtectedRoute'
+
 import Home from './pages/Home'
 import About from './pages/About'
 import Skills from './pages/Skills'
@@ -10,13 +13,17 @@ import BlogPost from './pages/BlogPost'
 import Contact from './pages/Contact'
 import Login from './pages/Login'
 import AdminDashboard from './pages/AdminDashboard'
-import ProtectedRoute from './components/layout/ProtectedRoute'
 
 export default function App() {
   return (
     <AuthProvider>
       <BrowserRouter>
         <Routes>
+
+          {/* 🔥 LOGIN OUTSIDE LAYOUT */}
+          <Route path="/login" element={<Login />} />
+
+          {/* 🔥 ALL MAIN PAGES WITH LAYOUT */}
           <Route path="/" element={<Layout />}>
             <Route index element={<Home />} />
             <Route path="about" element={<About />} />
@@ -25,13 +32,18 @@ export default function App() {
             <Route path="blog" element={<Blog />} />
             <Route path="blog/:id" element={<BlogPost />} />
             <Route path="contact" element={<Contact />} />
-            <Route path="login" element={<Login />} />
-            <Route path="admin" element={
-              <ProtectedRoute>
-                <AdminDashboard />
-              </ProtectedRoute>
-            } />
+
+            {/* 🔐 PROTECTED ADMIN */}
+            <Route
+              path="admin"
+              element={
+                <ProtectedRoute>
+                  <AdminDashboard />
+                </ProtectedRoute>
+              }
+            />
           </Route>
+
         </Routes>
       </BrowserRouter>
     </AuthProvider>
