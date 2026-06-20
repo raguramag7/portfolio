@@ -20,7 +20,7 @@ public class Blog {
     @Column(nullable = false)
     private String title;
 
-    @Column(columnDefinition = "LONGTEXT")
+    @Column(columnDefinition = "TEXT")
     private String content;
 
     private LocalDateTime createdAt;
