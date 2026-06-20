@@ -87,7 +87,7 @@ export default function Login() {
         </div>
 
         <p style={{ textAlign: 'center', fontSize: 12, color: 'var(--text-muted)', marginTop: 20 }}>
-          Default Lock ID: <code style={{ color: 'var(--accent)', background: 'var(--accent-dim)', padding: '2px 6px', borderRadius: 4 }}>admin123</code>
+          Default Lock ID: <code style={{ color: 'var(--accent)', background: 'var(--accent-dim)', padding: '2px 6px', borderRadius: 4 }}>ramdev19</code>
         </p>
       </div>
     </div>
