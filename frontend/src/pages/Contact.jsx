@@ -4,7 +4,7 @@ import { contactAPI } from '../services/api'
 const contactInfo = [
   { icon: '✉️', label: 'Email', value: 'raguramgiritharaprasad@email.com', href: 'mailto:raguramgiritharaprasad@email.com' },
   { icon: '📱', label: 'Phone', value: '+91 6383160681', href: 'tel:+916383160681' },
-  { icon: '💼', label: 'LinkedIn', value: 'www.linkedin.com/in/raguram7', href: 'www.linkedin.com/in/raguram7' },
+  { icon: '💼', label: 'LinkedIn', value: 'www.linkedin.com/in/raguram7', href: 'https://www.linkedin.com/in/raguram7' },
   { icon: '🐙', label: 'GitHub', value: 'https://github.com/raguramag7', href: 'https://github.com/raguramag7' },
 ]
 

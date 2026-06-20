@@ -39,7 +39,7 @@ export default function AdminDashboard() {
     Promise.all([
       projectsAPI.getAll(),
       blogsAPI.getAll(),
-      contactAPI.getMessages(),
+      contactAPI.getAll(),
     ]).then(([proj, blog, msgs]) => {
       setStats({ projects: proj.data.length, blogs: blog.data.length, messages: msgs.data.length })
       setMessages(msgs.data.slice(0, 5))

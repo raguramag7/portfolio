@@ -21,7 +21,7 @@ export default function Login() {
     setLoading(true)
     setError('')
     try {
-      const res = await authAPI.login(lockId)
+      const res = await authAPI.login({ lockId })
       login(res.data.token)
       navigate('/admin')
     } catch (err) {

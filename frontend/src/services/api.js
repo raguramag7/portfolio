@@ -1,7 +1,8 @@
 import axios from 'axios'
 
 const BASE_URL = import.meta.env.VITE_API_URL 
-  || "https://invigorating-tenderness-production-6b0d.up.railway.app"
+  || import.meta.env.VITE_API_BASE_URL 
+  || (import.meta.env.DEV ? "" : "https://invigorating-tenderness-production-6b0d.up.railway.app")
 
 const api = axios.create({
   baseURL: BASE_URL,
@@ -30,6 +31,14 @@ export const projectsAPI = {
 export const authAPI = {
   login:    (credentials) => api.post("/api/auth/login", credentials),
   register: (data)        => api.post("/api/auth/register", data),
+}
+
+export const blogsAPI = {
+  getAll:  ()         => api.get("/api/blogs"),
+  getById: (id)       => api.get(`/api/blogs/${id}`),
+  create:  (data)     => api.post("/api/blogs", data),
+  update:  (id, data) => api.put(`/api/blogs/${id}`, data),
+  delete:  (id)       => api.delete(`/api/blogs/${id}`),
 }
 
 export const skillsAPI = {
