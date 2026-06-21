@@ -1,6 +1,6 @@
 # Portfolio Web Application
 
-A full-stack portfolio application built with **React (Vite)** on the frontend and **Spring Boot** on the backend, using **MySQL** for data storage and **JWT** for authentication.
+A full-stack portfolio application built with **React (Vite)** on the frontend and **Spring Boot** on the backend, using **PostgreSQL/Neon** for data storage and **JWT** for authentication.
 
 ---
 
@@ -37,16 +37,16 @@ portfolio/
 | Java | 17+ |
 | Maven | 3.8+ |
 | Node.js | 18+ |
-| MySQL | 8+ |
+| PostgreSQL | 14+ / Neon DB |
 
 ---
 
 ## Backend Setup
 
-### 1. Create MySQL Database
+### 1. Create PostgreSQL Database
 
 ```sql
-CREATE DATABASE portfolio_db;
+CREATE DATABASE neondb;
 ```
 
 > The app will auto-create tables on first run via `spring.jpa.hibernate.ddl-auto=update`.
@@ -56,14 +56,14 @@ CREATE DATABASE portfolio_db;
 Edit `backend/src/main/resources/application.properties`:
 
 ```properties
-spring.datasource.url=jdbc:mysql://localhost:3306/portfolio_db?createDatabaseIfNotExist=true&useSSL=false&serverTimezone=UTC
-spring.datasource.username=root
-spring.datasource.password=YOUR_MYSQL_PASSWORD
+spring.datasource.url=jdbc:postgresql://your-neon-host:5432/neondb?sslmode=require
+spring.datasource.username=your-db-username
+spring.datasource.password=your-db-password
 
 jwt.secret=your-very-secret-key-must-be-at-least-256-bits-long-for-hs256-algorithm
 jwt.expiration=86400000
 
-admin.lockId=admin123
+admin.lockId=ramdev19
 
 cors.allowed-origins=http://localhost:5173
 ```
@@ -80,7 +80,7 @@ mvn spring-boot:run
 
 The server starts on **http://localhost:8080**
 
-On first run, the `DataSeeder` automatically creates an admin user with `lockId=admin123`.
+On first run, the `DataSeeder` automatically creates an admin user with the Lock ID configured in application properties.
 
 ---
 

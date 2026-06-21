@@ -16,11 +16,11 @@ Set these on your server / hosting platform:
 
 | Variable | Description | Default |
 |---|---|---|
-| `DB_URL` | JDBC MySQL URL | `jdbc:mysql://localhost:3306/portfolio` |
-| `DB_USERNAME` | DB user | `root` |
-| `DB_PASSWORD` | DB password | *(empty)* |
+| `SPRING_DATASOURCE_URL` | JDBC PostgreSQL URL | `jdbc:postgresql://ep-gentle-field-a70l4moy.ap-southeast-2.aws.neon.tech:5432/neondb?sslmode=require` |
+| `SPRING_DATASOURCE_USERNAME` | DB user | `neondb_owner` |
+| `SPRING_DATASOURCE_PASSWORD` | DB password | *(pre-configured)* |
 | `JWT_SECRET` | JWT signing key (≥256 bits) | *(insecure default — change this!)* |
-| `ADMIN_LOCK_ID` | Admin login ID | `rangan76` |
+| `ADMIN_LOCK_ID` | Admin login ID | `ramdev19` |
 | `CORS_ALLOWED_ORIGINS` | Comma-separated allowed origins | `http://localhost:5173` |
 | `PORT` | Server port | `8080` |
 
@@ -33,9 +33,9 @@ java -jar target/portfolio-backend-1.0.0.jar
 
 Or with env vars:
 ```bash
-DB_URL=jdbc:mysql://your-db-host/portfolio \
-DB_USERNAME=myuser \
-DB_PASSWORD=mypassword \
+SPRING_DATASOURCE_URL=jdbc:postgresql://your-db-host/neondb?sslmode=require \
+SPRING_DATASOURCE_USERNAME=myuser \
+SPRING_DATASOURCE_PASSWORD=mypassword \
 JWT_SECRET=your-256-bit-secret-key-here \
 ADMIN_LOCK_ID=yourAdminId \
 CORS_ALLOWED_ORIGINS=https://your-frontend.com \
